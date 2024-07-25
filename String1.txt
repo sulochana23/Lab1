@@ -1,0 +1,34 @@
+package com.lab;
+
+public class String1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		        String original = "12345678";
+		        String m = mString(original);
+		        System.out.println(m);
+		    }
+
+		    public static String mString(String input) {
+		        int length = input.length();
+		        if (length <= 4) {
+		            return input; // If the string length is 4 or less, return the original string
+		        }
+
+		        // Create a char array to build the masked string
+		        char[] mChars = new char[length];
+		        
+		        // Fill the first part with 'X' characters
+		        for (int i = 0; i < length - 4; i++) {
+		            mChars[i] = 'X';
+		        }
+		        
+		        // Copy the last 4 characters from the original input
+		        for (int i = length - 4; i < length; i++) {
+		            mChars[i] = input.charAt(i);
+		        }
+		        
+		        // Convert char array to string and return
+		        return new String(mChars);
+		    }
+}
